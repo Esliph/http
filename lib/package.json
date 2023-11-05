@@ -33,5 +33,9 @@
         "tsx": "^3.14.0",
         "typescript": "^5.2.2"
     },
-    "dependencies": {}
+    "dependencies": {
+        "@esliph/decorator": "^1.0.2",
+        "@esliph/observer": "^1.0.0",
+        "@esliph/repository-memory": "^1.0.0"
+    }
 }
