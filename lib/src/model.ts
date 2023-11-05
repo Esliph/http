@@ -1,4 +1,4 @@
-import { Result } from '../result'
+import { Result } from '@esliph/common'
 import { Request } from './handler/request'
 import { Response } from './handler/response'
 
