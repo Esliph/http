@@ -42,7 +42,7 @@ export class ResultHttp<ResultValueModel = any> extends ResultModelBase<ResultVa
     }
 
     getResponse() {
-        return { ...super.getResponse(), dateTime: this.dateTime }
+        return { ...super.getResponse(), dateTime: this.dateTime, timeResponse: this.timeResponse }
     }
 
     getDateTime() {

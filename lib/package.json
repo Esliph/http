@@ -34,6 +34,7 @@
         "typescript": "^5.2.2"
     },
     "dependencies": {
+        "@esliph/common": "^1.0.1",
         "@esliph/decorator": "^1.0.2",
         "@esliph/observer": "^1.0.0",
         "@esliph/repository-memory": "^1.0.0"
