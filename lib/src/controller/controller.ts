@@ -9,7 +9,7 @@ export class ServerController {
     protected static readonly repository = new ServerRepository({ isolated: true })
 
     createRouter({ handlers, method, name, access, context, module }: RouterModelArgs) {
-        if (this.findRouter({ name, access })) {
+        if (this.findRouter({ name, access, method })) {
             throw new ErrorResult({ title: 'HTTP Server', message: `Already exists router ${method} "${name}"` })
         }
 
@@ -28,8 +28,8 @@ export class ServerController {
         return eventRouter.response.getResponse()
     }
 
-    protected findRouter({ name, access }: { name: string, access: string }) {
-        const router = this.repository.findFirst({ where: { name: { equals: name }, access: { equals: access } } })
+    protected findRouter({ name, access, method }: { name: string, access: string, method: string }) {
+        const router = this.repository.findFirst({ where: { name: { equals: name }, access: { equals: access }, method: { equals: method } } })
 
         if (!router) {
             return null
