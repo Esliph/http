@@ -17,7 +17,7 @@ export class ServerController {
     }
 
     async performRouter<Body = any, Res = any>({ method, name, body, headers, params, access, context, module, origin }: Omit<RequestModel, 'dateTime'>) {
-        const router = this.findRouter({ name, access })
+        const router = this.findRouter({ name, access, method })
 
         const request = new Request({ body, method, name, headers, params, access, context, module, origin })
 
