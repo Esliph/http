@@ -49,11 +49,9 @@ export class EventRouter<Body = any, Res = any> {
     }
 
     private endRouterSituation() {
-        if (this.response.getResponse().isSuccess()) {
-            this.observer.emit('request/success', { request: this.request, response: this.response.getResponse() }, this.request.access)
-        } else {
-            this.observer.emit('request/error', { request: this.request, response: this.response.getResponse() }, this.request.access)
-        }
+        const situation = this.response.getResponse().isSuccess() ? 'success' : 'error'
+
+        this.observer.emit(`request/${situation}`, { request: this.request, response: this.response.getResponse() }, this.request.access)
     }
 
     private validEventRouter() {
