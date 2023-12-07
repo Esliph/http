@@ -1,4 +1,5 @@
 export * from './utils/status-code'
+export * from './controller/event-router'
 export * from './handler/request'
 export * from './handler/response'
 export * from './observers/client'
