@@ -29,7 +29,7 @@ export class Response<Res = any> {
     }
 
     error(error: ErrorResultInfo) {
-        this.state.error = { causes: [], ...error }
+        this.state.error = { causes: [], ...error, stack: '' }
         this.state.ok = false
     }
 
