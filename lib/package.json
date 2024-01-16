@@ -1,6 +1,6 @@
 {
     "name": "@esliph/http",
-    "version": "1.0.4",
+    "version": "1.0.5",
     "description": "",
     "main": "dist/index.js",
     "types": "index.d.ts",
@@ -28,13 +28,13 @@
     "author": "",
     "license": "MIT",
     "devDependencies": {
-        "@types/node": "^20.10.3",
+        "@types/node": "^20.11.4",
         "tsup": "^8.0.1",
-        "tsx": "^4.6.2",
+        "tsx": "^4.7.0",
         "typescript": "^5.3.3"
     },
     "dependencies": {
-        "@esliph/common": "^1.0.2",
+        "@esliph/common": "^1.0.3",
         "@esliph/decorator": "^1.0.2",
         "@esliph/observer": "^1.0.0",
         "@esliph/repository-memory": "^1.0.0"
