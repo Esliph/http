@@ -20,6 +20,7 @@ export type RouterModelArgs = {
     module: string
     context: string
     access: string
+    attributes: { [x: string]: any }
     handlers: HandlerRouter[]
 }
 
@@ -29,5 +30,6 @@ export type RouterModel<Name extends string, Body = any> = {
     module: string
     context: string
     access: string
+    attributes: { [x: string]: any }
     handlers: HandlerRouter<Name, Body>[]
 }

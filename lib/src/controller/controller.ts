@@ -8,18 +8,18 @@ import { ServerRepository } from './repository'
 export class ServerController {
     protected static readonly repository = new ServerRepository({ isolated: true })
 
-    createRouter({ handlers, method, name, access, context, module }: RouterModelArgs) {
+    createRouter({ handlers, method, name, access, context, module, attributes }: RouterModelArgs) {
         if (this.findRouter({ name, access, method })) {
             throw new ErrorResult({ title: 'HTTP Server', message: `Already exists router ${method} "${name}"` })
         }
 
-        this.repository.create({ data: { handlers, method, name, access, context, module } })
+        this.repository.create({ data: { handlers, method, name, access, context, module, attributes } })
     }
 
-    async performRouter<Body = any, Res = any>({ method, name, body, headers, params, access, context, module, origin }: Omit<RequestModel, 'dateTime'>) {
+    async performRouter<Body = any, Res = any>({ method, name, body, headers, params, access, context, module, origin, attributes }: Omit<RequestModel, 'dateTime'>) {
         const router = this.findRouter({ name, access, method })
 
-        const request = new Request({ body, method, name, headers, params, access, context, module, origin })
+        const request = new Request({ body, method, name, headers, params, access, context, module, origin, attributes })
 
         const eventRouter = new EventRouter<Body, Res>(request, router?.handlers || ([] as any), !!router)
 

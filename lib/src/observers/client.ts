@@ -7,6 +7,7 @@ import { ResultHttp } from '../result-http'
 
 export type RequestOption = {
     headers: { [x: string]: any }
+    attributes: { [x: string]: any }
     params: { [x: string]: any }
     access: string, context: string, module: string, origin: string
 }
@@ -22,6 +23,7 @@ export class Client<Events extends EventsModel> extends ObserverServerListener {
         this.requestOptions = {
             headers: {},
             params: {},
+            attributes: {},
             access: '',
             context: '',
             module: '',

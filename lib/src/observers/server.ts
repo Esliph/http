@@ -5,7 +5,7 @@ import { HandlerRouter, Method } from '../model'
 import { ObserverServerListener } from '../observer'
 
 export type ServerOption = {
-    access: string, context: string, module: string
+    access: string, context: string, module: string, attributes: { [x: string]: any }
 }
 
 export class Server<ContextEvents extends EventsModel> extends ObserverServerListener {
@@ -18,12 +18,13 @@ export class Server<ContextEvents extends EventsModel> extends ObserverServerLis
         this.controller = new ServerController()
         this.requestOptions = {
             access: '', context: '', module: '',
+            attributes: {},
             ...requestOptions,
         }
     }
 
     resetOptions() {
-        this.requestOptions = { access: '', context: '', module: '' }
+        this.requestOptions = { access: '', context: '', module: '', attributes: {} }
     }
 
     use(requestOptions: Partial<ServerOption> = {}) {
