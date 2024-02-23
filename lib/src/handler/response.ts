@@ -1,4 +1,5 @@
 import { ErrorResultInfo } from '@esliph/common'
+import { isUndefined, isNull } from '@esliph/common/util'
 import { ResultHttp, ResultHttpModel } from '../result-http'
 
 export type ResponseModel<Res = any> = ResultHttpModel<Res>
@@ -46,6 +47,6 @@ export class Response<Res = any> {
     }
 
     hasResponse() {
-        return (typeof this.state.error != 'undefined' && this.state.error != null) || (typeof this.state.value != 'undefined' && this.state.value != null)
+        return (isUndefined(this.state.error) && isNull(this.state.error)) || (isUndefined(this.state.value) && isNull(this.state.value))
     }
 }

@@ -1,4 +1,5 @@
 import { Result, ResultException } from '@esliph/common'
+import { isUndefined } from '@esliph/common/util'
 import { HttpStatusCodes } from '../utils/status-code'
 import { Request } from '../handler/request'
 import { Response } from '../handler/response'
@@ -101,7 +102,7 @@ export class EventRouter<Body = any, Res = any> {
     private async performHandler(handler: HandlerRouter<Body, any>) {
         const responseHandler = await handler(this.request, this.response)
 
-        if (typeof responseHandler != 'undefined') {
+        if (!isUndefined(responseHandler)) {
             if (responseHandler instanceof Result) {
                 this.response.status(responseHandler.getStatus())
                 if (responseHandler.isSuccess()) {
